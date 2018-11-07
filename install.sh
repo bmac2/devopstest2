@@ -1,14 +1,15 @@
-#!/bin/sh
+#!/bin/bash
+set -xe
 
-MYDIR="webbackend"
 MYPORT="3200"
+SERVERNAME="www.example.com"
 
 # update system
 apt-get update
-apt-get upgrade -y
+apt -y upgrade 
 
 # install nginx
-apt install nginx
+apt -y install nginx
 
 # confirm that nginx will boot at start
 systemctl enable nginx
@@ -17,21 +18,18 @@ systemctl enable nginx
 ufw enable 
 
 # allow Nginx through firewall
-ufw allow 'Nginx HTTP'
-ufs status
+ufw allow 3200
+ufw allow 22
+ufw status
 
 
 # make a copy of default conf for new site
 cp ./vh-3200 /etc/nginx/sites-available/vh-3200
-cp ./custom404.html /var/www/$MYDIR
-
+cp ./custom_404.html /usr/share/nginx/html
+cp ./th.jpeg /usr/share/nginx/html
 
 # replace #PORT# with 3200
 sed -i -e 's/#PORT#/'$MYPORT'/g' /etc/nginx/sites-available/vh-3200
-
-# replace #DIR# with webbackend
-sed -i -e 's/#DIR#/'$MYDIR'/g' /etc/nginx/sites-available/vh-3200
-
 
 sed -i -e 's/#SERVERNAME#/'$SERVERNAME'/g' /etc/nginx/sites-available/vh-3200
 
