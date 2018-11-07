@@ -30,3 +30,9 @@ STEPS TO USE THESE SCRIPTS
 6 f.  restartx nginx
   
   
+I used the following setup to test this version of the script:
+1. Mint Linux Laptop for development
+2. Virtualbox to run ubuntu server in
+3. Ubuntu Server 18.04 LTS server iso
+4. Sublime text editor for coding
+5  Standard sh shell scripting.
