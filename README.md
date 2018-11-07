@@ -17,16 +17,16 @@ STEPS TO USE THESE SCRIPTS
 
 6.  Run the install.sh script AS ROOT.  This will do the following items to your server:
 
-6a.  update and then upgrade your server for all available patches
+6 a.  update and then upgrade your server for all available patches
 
-6b.  install nginx
+6 b.  install nginx
   
-6c. enable ufw firewall
+6 c. enable ufw firewall
   
-6d.  open port 3200 to allow outside traffic to access the webserver. All other traffic (i.e. 80 and 443 ) will be blocked to any other port.
+6 d.  open port 3200 to allow outside traffic to access the webserver. All other traffic (i.e. 80 and 443 ) will be blocked to any other port.
   
-6e.   copies the virtual host template in place, then edits the template to put the correct values in for the placeholders
+6 e.   copies the virtual host template in place, then edits the template to put the correct values in for the placeholders
   
-6f.  restartx nginx
+6 f.  restartx nginx
   
   
