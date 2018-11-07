@@ -31,8 +31,23 @@ STEPS TO USE THESE SCRIPTS
   
   
 I used the following setup to test this version of the script:
+
 1. Mint Linux Laptop for development
+
 2. Virtualbox to run ubuntu server in
+
 3. Ubuntu Server 18.04 LTS server iso
+
 4. Sublime text editor for coding
-5  Standard sh shell scripting.
+
+5. Thinkpad with FreeBSD 11.2 installed to test the connection to the webserver.  In the /etc/host file I added entries to 127.0.0.1 for both www.example.com, which is in the directions, along with www.barryissmart.com to the same 127.0.0.1 so I could make sure the machine sends the custom 404 page i built for anything other than the www.example.com address.
+
+6.  nmap on the freebsd machine to test for open ports on the webserver.  ONLY 22 and 3200 should be available from outside.
+
+7. Obviously firefox on the FreeBSD machine.
+
+8. Standard bash shell scripting.
+
+9.  netcat command 'nc -l 3400' to simulate an application listening on port 3400 on localhost.  To test the port outside of nginx you use 'nc -v localhost 3400' and it should say Connection to localhost 3400 port succeeded!
+
+10  To test the final setup I started the listener on the above step with an & after it to allow it to be pushed into the background.   Then I went to my Freebsd laptop and ran nc -v www.example.com 3200 and successfully got back the connection succeeded that was actually on port 3400 on the backend.
