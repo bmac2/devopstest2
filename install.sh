@@ -1,11 +1,11 @@
 #!/bin/sh
 
-MYDIR = "webbackend"
-MYPORT = "3200"
+MYDIR="webbackend"
+MYPORT="3200"
 
 # update system
 apt-get update
-apt-get -y upgrade
+apt-get upgrade -y
 
 # install nginx
 apt install nginx
@@ -37,6 +37,9 @@ sed -i -e 's/#SERVERNAME#/'$SERVERNAME'/g' /etc/nginx/sites-available/vh-3200
 
 # activate the new site
 ln -s /etc/nginx/sites-available/vh-3200 /etc/nginx/sites-enabled/002-vh-3200
+
+# restart nginx 
+systemctl restart nginx
 
 
 
