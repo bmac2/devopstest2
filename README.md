@@ -9,11 +9,17 @@ STEPS TO USE THESE SCRIPTS
 4.  Once you have cloned the repository, go into the devopstest2 directory and either chmod +x install.sh, or chmod 755 install.sh, either way you prefer, they both make the install.sh script executable.
 5.  Check the variables set in the install.sh file to make sure the port and server names are what you desire.
 6.  Run the install.sh script AS ROOT.  This will do the following items to your server:
+
   i.   update and then upgrade your server for all available patches
+
   ii.  install nginx
+  
   iii. enable ufw firewall
+  
   iv.  open port 3200 to allow outside traffic to access the webserver. All other traffic (i.e. 80 and 443 ) will be blocked to any other port.
+  
   v.   copies the virtual host template in place, then edits the template to put the correct values in for the placeholders
+  
   vi.  restartx nginx
   
   
